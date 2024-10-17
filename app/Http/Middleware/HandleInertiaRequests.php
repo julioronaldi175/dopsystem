@@ -29,11 +29,20 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+
+        $appName = config('app.name');
+        $appCompany = config('app.company');
+        $appAddress = config('app.address');
+
         return [
             ...parent::share($request),
             'auth' => [
                 'user' => $request->user(),
             ],
+
+            'appName' => $appName,
+            'appCompany' => $appCompany,
+            'appAddress' => $appAddress,
         ];
     }
 }

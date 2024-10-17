@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', [LandingController::class, 'index'])->name('home');
+Route::get('/join-us', [LandingController::class, 'index_join'])->name('landing.joinus');
+Route::get('/contact-us', [LandingController::class, 'index_contact'])->name('landing.contact');
+Route::get('/about-us', [LandingController::class, 'index_about'])->name('landing.about');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
