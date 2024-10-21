@@ -33,6 +33,7 @@ class HandleInertiaRequests extends Middleware
         $appName = config('app.name');
         $appCompany = config('app.company');
         $appAddress = config('app.address');
+        $appDesc = config('app.description');
 
         return [
             ...parent::share($request),
@@ -43,6 +44,7 @@ class HandleInertiaRequests extends Middleware
             'appName' => $appName,
             'appCompany' => $appCompany,
             'appAddress' => $appAddress,
+            'appDesc' => $appDesc,
         ];
     }
 }

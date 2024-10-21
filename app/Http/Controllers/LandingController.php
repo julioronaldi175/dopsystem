@@ -31,4 +31,14 @@ class LandingController extends Controller
     {
         return Inertia::render('Landing/About');
     }
+
+    public function index_services()
+    {
+        return Inertia::render('Landing/About');
+    }
+
+    public function index_privacy()
+    {
+        return Inertia::render('Landing/Privacy');
+    }
 }

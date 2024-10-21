@@ -5,7 +5,7 @@ import Faq from "@/Components/Faq";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandHoldingUsd } from "@fortawesome/free-solid-svg-icons";
-import HeroSlider from "@/Components/HeroSlider";
+import HeroSlider from "@/Components/Landing/HeroSlider";
 
 export default function Welcome(props) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =

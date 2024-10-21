@@ -1,4 +1,5 @@
-import LandingNavbar from "@/Components/LandingNavbar";
+import LandingFooter from "@/Components/Landing/LandingFooter";
+import LandingNavbar from "@/Components/Landing/LandingNavbar";
 import { Head } from "@inertiajs/react";
 
 export default function LandingLayout({ title = "DOP", children, props }) {
@@ -12,17 +13,7 @@ export default function LandingLayout({ title = "DOP", children, props }) {
                 <div className="px-2 bg-white">{children}</div>
 
                 {/* Footer */}
-                <section className="px-4 py-6 bg-gray-100 text-center select-none">
-                    <p className="text-gray-600 text-sm">
-                        © {new Date().getFullYear()} {props.appCompany}. All
-                        rights reserved.
-                    </p>
-                    {props.appAddress && (
-                        <p className="text-gray-600 text-xs">
-                            {props.appAddress}
-                        </p>
-                    )}
-                </section>
+                <LandingFooter></LandingFooter>
             </div>
         </>
     );

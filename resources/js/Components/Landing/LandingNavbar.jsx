@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import NavigationItem from "./NavigationItem";
+import NavigationItem from "../NavigationItem";
 import { navLinks } from "@/Constants/Navigation";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
-import ApplicationLogo from "./ApplicationLogo";
+import ApplicationLogo from "../ApplicationLogo";
 import { usePage } from "@inertiajs/react";
 
 const LandingNavbar = () => {
@@ -13,7 +13,7 @@ const LandingNavbar = () => {
 
     return (
         <>
-            <header className="bg-white shadow-lg sticky top-0 py-4 md:py-6 z-50">
+            <header className="bg-white shadow-sm md:shadow-md sticky top-0 py-4 md:py-6 z-50">
                 <div className="flex justify-between px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="relative flex items-center justify-between">
                         <div className="flex-shrink-0">
@@ -36,6 +36,7 @@ const LandingNavbar = () => {
                         {navLinks.map((link, index) => (
                             <NavigationItem
                                 key={index}
+                                routeName={link.routeName}
                                 href={link.href}
                                 label={link.label}
                                 subLinks={link.subLinks}

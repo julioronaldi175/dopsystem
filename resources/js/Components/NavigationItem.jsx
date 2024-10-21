@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { router } from "@inertiajs/react";
+import { route } from "../../../vendor/tightenco/ziggy/src/js";
 
-const NavigationItem = ({ href, label, subLinks }) => {
+const NavigationItem = ({ routeName, href, label, subLinks }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleToggle = () => {
@@ -19,7 +20,9 @@ const NavigationItem = ({ href, label, subLinks }) => {
                 onClick={
                     subLinks && subLinks.length > 0 ? handleToggle : navigate
                 }
-                className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className={`flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
+                    route().current(routeName) ? "bg-gray-100" : ""
+                }`}
             >
                 {label}
                 {subLinks && subLinks.length > 0 && (

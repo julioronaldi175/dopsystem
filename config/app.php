@@ -16,6 +16,7 @@ return [
     'name' => env('APP_NAME', 'Digital Obor Perubahan'),
     'company' => env('APP_COMPANY', 'PT Mitra Pendidikan Nusantara'),
     'address' => env('APP_ADDRESS', 'Jl. Merdeka No. 55, Pontianak - Kalimantan Barat'),
+    'description' => env('APP_DESC', ''),
 
     /*
     |--------------------------------------------------------------------------
