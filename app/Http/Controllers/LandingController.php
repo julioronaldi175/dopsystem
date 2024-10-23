@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -32,9 +33,17 @@ class LandingController extends Controller
         return Inertia::render('Landing/About');
     }
 
-    public function index_services()
+
+    public function index_services($id)
     {
-        return Inertia::render('Landing/About');
+        // Find the service by ID
+        $service = Service::findOrFail($id);
+
+        // Pass the service details to Inertia for the frontend
+        return Inertia::render('Landing/Service', [
+            'service' => $service,
+            'features' => json_decode($service->features, true), // Pass the features array
+        ]);
     }
 
     public function index_privacy()

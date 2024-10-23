@@ -1,3 +1,5 @@
+import ChatWAButton from "@/Components/Landing/ChatWAButton";
+import GoToTopButton from "@/Components/Landing/GoToTopButton";
 import LandingFooter from "@/Components/Landing/LandingFooter";
 import LandingNavbar from "@/Components/Landing/LandingNavbar";
 import { Head } from "@inertiajs/react";
@@ -14,6 +16,9 @@ export default function LandingLayout({ title = "DOP", children, props }) {
 
                 {/* Footer */}
                 <LandingFooter></LandingFooter>
+
+                <ChatWAButton></ChatWAButton>
+                <GoToTopButton></GoToTopButton>
             </div>
         </>
     );

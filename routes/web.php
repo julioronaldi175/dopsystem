@@ -8,7 +8,7 @@ use Inertia\Inertia;
 
 Route::get('/', [LandingController::class, 'index'])->name('home');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.home');
-Route::get('/services', [LandingController::class, 'index_services'])->name('landing.services');
+Route::get('/services/{id}', [LandingController::class, 'index_services'])->name('landing.services');
 Route::get('/pricing', [LandingController::class, 'index_pricing'])->name('landing.pricing');
 Route::get('/join-us', [LandingController::class, 'index_join'])->name('landing.joinus');
 Route::get('/contact-us', [LandingController::class, 'index_contact'])->name('landing.contact');

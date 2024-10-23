@@ -14,9 +14,18 @@ import PricingVideoReels from "@/Components/Pricing/PricingVideoReels";
 import PricingDigitalMarketing from "@/Components/Pricing/PricingDigitalMarketing";
 import strategyImage from "@/Images/branding.png";
 import BusinessStrategyTimeline from "@/Components/Landing/BusinessStrategyTimeline";
+import PricingWebCommunity from "@/Components/Pricing/PricingWebCommunity";
+import PricingWebBusiness from "@/Components/Pricing/PricingWebBusiness";
+import PricingLogo from "@/Components/Pricing/PricingLogo";
 
 export default function Home(props) {
-    const slidesPricing = [PricingVideoReels, PricingDigitalMarketing];
+    const slidesPricing = [
+        PricingDigitalMarketing,
+        PricingWebCommunity,
+        PricingWebBusiness,
+        PricingLogo,
+        PricingVideoReels,
+    ];
     return (
         <>
             <LandingLayout props={props}>
@@ -36,7 +45,7 @@ export default function Home(props) {
                     }
                     primaryAction={{
                         text: "Lihat Penawaran",
-                        link: route("landing.services"),
+                        link: "#pricelist",
                     }}
                     secondaryAction={{
                         text: "Pelajari selengkapnya",
@@ -126,21 +135,44 @@ export default function Home(props) {
                             Maka dengan Itu Kami Menawarkan ...
                         </h2>
 
-                        <div className="relative my-12 rounded-xl shadow-lg overflow-hidden">
+                        <div className="relative my-12 border-2 rounded-xl shadow-lg overflow-hidden">
                             {/* Background pattern */}
                             <div
                                 className="absolute inset-0 pattern-zigzag-3d pattern-indigo-400 pattern-bg-white
-  pattern-size-24 pattern-opacity-10"
+  pattern-size-24 pattern-opacity-5"
                             ></div>
 
                             {/* Content goes here */}
-                            <div className="relative z-10">
+                            <div className="relative z-10" id="pricelist">
                                 <Carousel
                                     slides={slidesPricing}
                                     autoSlideInterval={25000}
                                 />
                             </div>
                         </div>
+                    </div>
+                </section>
+
+                {/* Section Contact Us */}
+                <section className="py-12 bg-orange-600">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                        <h2 className="text-3xl font-bold text-white">
+                            Bingung Ingin Memulai?
+                        </h2>
+                        <p className="text-lg mt-4 text-gray-50">
+                            Silahkan hubungi kami untuk berkonsultasi dan segera
+                            mulai perjalanan bisnis luar biasa Anda dalam dunia
+                            digital.
+                        </p>
+                    </div>
+
+                    <div className="mt-8 flex justify-center">
+                        <a
+                            href={route("landing.contact")}
+                            className="px-6 py-3 text-lg bg-white text-orange-600 font-semibold rounded-md hover:bg-gray-100"
+                        >
+                            Hubungi Kami
+                        </a>
                     </div>
                 </section>
 
