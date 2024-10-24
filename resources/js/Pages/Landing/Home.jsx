@@ -111,7 +111,7 @@ export default function Home(props) {
                 </section>
 
                 {/* Pricing Section */}
-                <section className="py-12 bg-white">
+                <section className="py-12 bg-white" id="pricelist">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center select-none">
                         <h2 className="text-3xl font-bold text-gray-800">
                             Bagaimana Awal Mula Semua Ini?
@@ -143,7 +143,7 @@ export default function Home(props) {
                             ></div>
 
                             {/* Content goes here */}
-                            <div className="relative z-10" id="pricelist">
+                            <div className="relative z-10">
                                 <Carousel
                                     slides={slidesPricing}
                                     autoSlideInterval={25000}

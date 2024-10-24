@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 import officeImage from "@/Images/dop_office2.jpg";
+import DOPMaps from "@/Components/Landing/DOPMaps";
 
 export default function Contact(props) {
     return (
@@ -42,11 +43,14 @@ export default function Contact(props) {
                             +62 857-8797-1393 (Hariyadi)
                         </p>
                         <div className="w-full mx-auto py-8">
-                            <img
-                                src={officeImage}
-                                className="rounded-2xl h-72 w-full md:w-[40%] object-cover mx-auto"
-                                alt=""
-                            />
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:px-8">
+                                <img
+                                    src={officeImage}
+                                    className="rounded-2xl h-56 w-full object-cover mx-auto"
+                                    alt=""
+                                />
+                                <DOPMaps></DOPMaps>
+                            </div>
                         </div>
                         PT. Mitra Pendidikan Nusantara - Jl. Merdeka No. 55,
                         Pontianak, Kalimantan Barat, Indonesia - 78111
