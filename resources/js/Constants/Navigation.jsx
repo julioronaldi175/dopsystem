@@ -6,23 +6,28 @@ export const navLinks = [
         routeName: "landing.services",
         subLinks: [
             {
-                label: "Konten Reels",
-                href: route("landing.services", 4),
-                routeName: "landing.services",
-            },
-            {
                 label: "Digital Marketing",
                 href: route("landing.services", 1),
                 routeName: "landing.services",
             },
             {
-                label: "Desain Logo",
+                label: "Website Community",
+                href: route("landing.services", 2),
+                routeName: "landing.services",
+            },
+            {
+                label: "Website Business",
                 href: route("landing.services", 3),
                 routeName: "landing.services",
             },
             {
-                label: "Website Development",
-                href: route("landing.services", 2),
+                label: "Desain Logo",
+                href: route("landing.services", 4),
+                routeName: "landing.services",
+            },
+            {
+                label: "Konten Reels",
+                href: route("landing.services", 5),
                 routeName: "landing.services",
             },
         ],

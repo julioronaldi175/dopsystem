@@ -13,9 +13,10 @@ class ServiceSeeder extends Seeder
      */
     public function run(): void
     {
-        Service::truncate(); // Clear the services table
+        // Service::truncate(); // Clear the services table
         Service::create([
             'name' => 'Digital Marketing',
+            'image' => 'digital_marketing.png',
             'description' => 'Solusi untuk meningkatkan kehadiran online bisnis Anda melalui berbagai platform digital.',
             'features' => json_encode([
                 [
@@ -35,6 +36,7 @@ class ServiceSeeder extends Seeder
 
         Service::create([
             'name' => 'Web Community',
+            'image' => 'website_coding.png',
             'description' => 'Pengembangan dan pemeliharaan situs web untuk memastikan kinerja optimal.',
             'features' => json_encode([
                 [
@@ -54,6 +56,7 @@ class ServiceSeeder extends Seeder
 
         Service::create([
             'name' => 'Web Business',
+            'image' => 'website_coding.png',
             'description' => 'Pengembangan dan pemeliharaan situs web untuk memastikan kinerja optimal.',
             'features' => json_encode([
                 [
@@ -73,6 +76,7 @@ class ServiceSeeder extends Seeder
 
         Service::create([
             'name' => 'Logo Design',
+            'image' => 'a_laptop_showing_logo_designing_software_on_top_of_table.png',
             'description' => 'Desain logo yang mencerminkan identitas dan nilai perusahaan Anda.',
             'features' => json_encode([
                 [
@@ -88,6 +92,7 @@ class ServiceSeeder extends Seeder
 
         Service::create([
             'name' => 'Reels Content',
+            'image' => 'instagram_reels.jpg',
             'description' => 'Konten video singkat untuk menarik perhatian audiens di media sosial.',
             'features' => json_encode([
                 [

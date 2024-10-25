@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -9,7 +10,8 @@ use Inertia\Inertia;
 Route::get('/', [LandingController::class, 'index'])->name('home');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.home');
 Route::get('/services/{id}', [LandingController::class, 'index_services'])->name('landing.services');
-Route::get('/pricing', [LandingController::class, 'index_pricing'])->name('landing.pricing');
+Route::get('/pricing', [PricingController::class, 'index'])->name('landing.pricing');
+Route::get('/pricing-get', [PricingController::class, 'get'])->name('pricing.get');
 Route::get('/join-us', [LandingController::class, 'index_join'])->name('landing.joinus');
 Route::get('/contact-us', [LandingController::class, 'index_contact'])->name('landing.contact');
 Route::get('/about-us', [LandingController::class, 'index_about'])->name('landing.about');

@@ -1,28 +1,57 @@
 import Carousel from "@/Components/Carousel";
-import PricingDigitalMarketing from "@/Components/Pricing/PricingDigitalMarketing";
-import PricingLogo from "@/Components/Pricing/PricingLogo";
-import PricingVideoReels from "@/Components/Pricing/PricingVideoReels";
-import PricingWebBusiness from "@/Components/Pricing/PricingWebBusiness";
-import PricingWebCommunity from "@/Components/Pricing/PricingWebCommunity";
+import PricingSingle from "@/Components/Pricing/PricingSingle";
 import LandingLayout from "@/Layouts/LandingLayout";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 export default function Pricing(props) {
-    const slides = [
-        PricingDigitalMarketing,
-        PricingLogo,
-        PricingWebCommunity,
-        PricingWebBusiness,
-        PricingVideoReels,
-    ];
+    const [loading, setLoading] = useState(true);
+    const [slides, setSlides] = useState([]);
+
+    useEffect(() => {
+        const fetchPricingData = async () => {
+            try {
+                const response = await axios.get(route("pricing.get")); // Ensure this route is valid
+                if (response.status === 200) {
+                    let pricings = response.data.pricings;
+
+                    // Ensure pricings is an array
+                    pricings = Array.isArray(pricings)
+                        ? pricings
+                        : Object.values(pricings);
+
+                    // Map the pricing data to slides
+                    setSlides(
+                        pricings.map((pricing, index) => (
+                            <PricingSingle
+                                key={index} // Ensure the key prop is set
+                                name={pricing.service_name}
+                                pricings={pricing.pricings}
+                            />
+                        ))
+                    );
+                }
+                setLoading(false); // Stop loading once data is fetched
+            } catch (error) {
+                console.error("Error fetching pricing data", error);
+                setLoading(false);
+            }
+        };
+
+        fetchPricingData();
+    }, []);
+
+    if (loading) {
+        return <p>Loading...</p>; // Show loading state while fetching data
+    }
+
     return (
         <LandingLayout props={props}>
             <section className="py-12 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <Carousel
-                        slides={slides}
-                        autoSlideInterval={25000}
-                    ></Carousel>
+                    {slides.length > 0 && (
+                        <Carousel slides={slides} autoSlideInterval={25000} />
+                    )}
                 </div>
             </section>
         </LandingLayout>

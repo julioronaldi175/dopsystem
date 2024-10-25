@@ -1,5 +1,5 @@
 import React from "react";
-import PricingCard from "../PricingCard";
+import PricingCard from "./PricingCard";
 import { packagesWebCommunity } from "@/Constants/Pricing";
 
 export default function PricingWebCommunity() {

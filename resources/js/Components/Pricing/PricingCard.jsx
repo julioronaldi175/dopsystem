@@ -6,7 +6,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-const PricingCard = ({ packageName, details, price, isPopular }) => {
+const PricingCard = ({
+    packageName,
+    details,
+    price,
+    priceInterval,
+    isPopular,
+}) => {
     return (
         <div
             className={`border border-gray-200/75 bg-white px-8 py-12 rounded-lg shadow-lg ${
@@ -26,6 +32,11 @@ const PricingCard = ({ packageName, details, price, isPopular }) => {
                     <div className="mt-2 mb-4 text-center">
                         <p className="text-3xl font-extrabold text-gray-900 select-none">
                             {price}
+                            {priceInterval && (
+                                <span className="font-normal text-gray-400 text-base">
+                                    {priceInterval}
+                                </span>
+                            )}
                         </p>
                     </div>
                     <ul className="mt-6 space-y-2 text-gray-700 text-sm select-none text-start">
