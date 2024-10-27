@@ -13,6 +13,19 @@ const PricingCard = ({
     priceInterval,
     isPopular,
 }) => {
+    const detailItems = [];
+    details.forEach((detail, index) => {
+        detailItems.push(
+            <li key={index}>
+                <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="text-green-500 mr-2"
+                />{" "}
+                {detail}
+            </li>
+        );
+    });
+
     return (
         <div
             className={`border border-gray-200/75 bg-white px-8 py-12 rounded-lg shadow-lg ${
@@ -40,15 +53,7 @@ const PricingCard = ({
                         </p>
                     </div>
                     <ul className="mt-6 space-y-2 text-gray-700 text-sm select-none text-start">
-                        {details.map((detail, index) => (
-                            <li key={index}>
-                                <FontAwesomeIcon
-                                    icon={faCheckCircle}
-                                    className="text-green-500 mr-2"
-                                ></FontAwesomeIcon>{" "}
-                                {detail}
-                            </li>
-                        ))}
+                        {detailItems}
                     </ul>
                 </div>
                 <div className="mt-8">

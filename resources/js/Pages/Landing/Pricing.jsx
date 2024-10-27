@@ -14,22 +14,25 @@ export default function Pricing(props) {
                 const response = await axios.get(route("pricing.get")); // Ensure this route is valid
                 if (response.status === 200) {
                     let pricings = response.data.pricings;
+                    // console.log(pricings);
 
                     // Ensure pricings is an array
                     pricings = Array.isArray(pricings)
                         ? pricings
                         : Object.values(pricings);
 
-                    // Map the pricing data to slides
-                    setSlides(
-                        pricings.map((pricing, index) => (
+                    const slidesArray = [];
+                    pricings.forEach((pricing, index) => {
+                        slidesArray.push(
                             <PricingSingle
-                                key={index} // Ensure the key prop is set
+                                key={index}
                                 name={pricing.service_name}
-                                pricings={pricing.pricings}
-                            />
-                        ))
-                    );
+                                pricings={pricing.pricing}
+                                serviceId={pricing.service_id}
+                            ></PricingSingle>
+                        );
+                    });
+                    setSlides(slidesArray);
                 }
                 setLoading(false); // Stop loading once data is fetched
             } catch (error) {
@@ -41,16 +44,19 @@ export default function Pricing(props) {
         fetchPricingData();
     }, []);
 
-    if (loading) {
-        return <p>Loading...</p>; // Show loading state while fetching data
-    }
-
     return (
         <LandingLayout props={props}>
             <section className="py-12 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    {slides.length > 0 && (
+                    {!loading && slides.length > 0 && (
                         <Carousel slides={slides} autoSlideInterval={25000} />
+                    )}
+
+                    {loading && (
+                        <div className="py-12">
+                            Please Wait{" "}
+                            <span className="loading loading-ring loading-lg"></span>
+                        </div>
                     )}
                 </div>
             </section>

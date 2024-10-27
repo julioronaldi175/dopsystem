@@ -17,15 +17,33 @@ import BusinessStrategyTimeline from "@/Components/Landing/BusinessStrategyTimel
 import PricingWebCommunity from "@/Components/Pricing/PricingWebCommunity";
 import PricingWebBusiness from "@/Components/Pricing/PricingWebBusiness";
 import PricingLogo from "@/Components/Pricing/PricingLogo";
+import { useEffect, useState } from "react";
+import PricingSingle from "@/Components/Pricing/PricingSingle";
+import { usePage } from "@inertiajs/react";
 
 export default function Home(props) {
-    const slidesPricing = [
-        PricingDigitalMarketing,
-        PricingWebCommunity,
-        PricingWebBusiness,
-        PricingLogo,
-        PricingVideoReels,
-    ];
+    const [slidesPricing, setSlidesPricing] = useState([]);
+    const pricings = usePage().props.pricings;
+
+    useEffect(() => {
+        if (pricings) {
+            let processedPricings = Array.isArray(pricings)
+                ? pricings
+                : Object.values(pricings);
+
+            const slides = processedPricings.map((pricing, index) => (
+                <PricingSingle
+                    key={index}
+                    name={pricing.service_name}
+                    pricings={pricing.pricing}
+                    serviceId={pricing.service_id}
+                />
+            ));
+
+            setSlidesPricing(slides);
+        }
+    }, [pricings]);
+
     return (
         <>
             <LandingLayout props={props}>

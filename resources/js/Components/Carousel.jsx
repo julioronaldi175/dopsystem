@@ -44,7 +44,7 @@ const Carousel = ({ slides, autoSlideInterval = 5000 }) => {
                             key={index}
                             className={`min-w-full flex justify-center items-center h-full md:px-12`}
                         >
-                            <SlideComponent />
+                            {SlideComponent}
                         </div>
                     ))}
                 </div>

@@ -1,8 +1,13 @@
 import {
     faCheckCircle,
+    faEye,
+    faHandHoldingUsd,
+    faMoneyCheck,
     faShoppingCart,
+    faTags,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { router } from "@inertiajs/react";
 import React from "react";
 
 const ServiceFeatures = ({ service, features }) => {
@@ -40,12 +45,17 @@ const ServiceFeatures = ({ service, features }) => {
                             </dl>
                         </div>
                         <div className="mt-10 flex items-center gap-x-6">
-                            <button className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            <button
+                                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                onClick={() => {
+                                    router.visit(route("landing.pricing"));
+                                }}
+                            >
                                 <FontAwesomeIcon
-                                    icon={faShoppingCart}
+                                    icon={faTags}
                                     className="mr-1"
                                 ></FontAwesomeIcon>{" "}
-                                Pesan Sekarang
+                                Lihat Penawaran
                             </button>
                             <a
                                 href={route("landing.contact")}
